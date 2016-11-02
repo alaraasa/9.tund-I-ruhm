@@ -1,20 +1,25 @@
 <?php
 	//edit.php
 	require("functions.php");
-	require("editFunctions.php");
-	
+
 	//kas kasutaja uuendab andmeid
 	if(isset($_POST["update"])){
 		
-		updateCar(cleanInput($_POST["id"]), cleanInput($_POST["plate"]), cleanInput($_POST["color"]));
+		$Car->update(cleanInput($_POST["id"]), cleanInput($_POST["plate"]), cleanInput($_POST["color"]));
 		
 		header("Location: edit.php?id=".$_POST["id"]."&success=true");
         exit();	
-		
+	}
+
+	if(isset($_GET["delete"]) && $_GET["delete"]){
+		$Car->delete($_GET["id"]);
+
+		header("Location: data.php");
+		exit();
 	}
 	
 	//saadan kaasa id
-	$c = getSingleCarData($_GET["id"]);
+	$c = $Car->getSingle($_GET["id"]);
 	var_dump($c);
 
 	
@@ -32,3 +37,4 @@
   	
 	<input type="submit" name="update" value="Salvesta">
   </form>
+  <a href="?id=<?=$_GET["id"];?>&delete=true">Kustuta</a>

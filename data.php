@@ -34,12 +34,12 @@
 		!empty($_POST["color"])
 	  ) {
 		  
-		saveCar(cleanInput($_POST["plate"]), cleanInput($_POST["color"]));
+		$Car->save(cleanInput($_POST["plate"]), cleanInput($_POST["color"]));
 		
 	}
 	
 	//saan kõik auto andmed
-	$carData = getAllCars();
+	$carData = $Car->get();
 	//echo "<pre>";
 	//var_dump($carData);
 	//echo "</pre>";
