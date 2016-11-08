@@ -5,11 +5,11 @@ class User {
 	private $connection;
 
 	//$user = new User(see); jõuab siia sulgude vahele
-	function __construct($this->connection){
+	function __construct($mysqli){
 		//$this viitab sellele klassile
-		$this->connection = $this->connection;
+		$this->connection = $mysqli;
 	}
-}
+
 
 function login ($email, $password) {
 		
@@ -60,6 +60,8 @@ function login ($email, $password) {
 			// ei leidnud kasutajat selle meiliga
 			$error = "ei ole sellist emaili";
 		}
+		$stmt->close();
+
 		
 		return $error;
 		
@@ -83,7 +85,7 @@ function signUp ($email, $password) {
 		//$this->connection->close();
 		
 	}
-	
+}
 	
 	
 

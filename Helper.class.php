@@ -2,6 +2,8 @@
 
 class Helper {
 
+function __construct(){
+	
 }
 
 function cleanInput($input){
@@ -13,5 +15,5 @@ function cleanInput($input){
 	return $input;
 	
 	}
-
+}
 ?>

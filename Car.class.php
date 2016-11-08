@@ -3,8 +3,8 @@
 class Car {
 	private $connection;
 
-	function __construct($this->connection){
-		$this->connection = $this->connection;
+	function __construct($mysqli){
+		$this->connection = $mysqli;
 	}
 
 
@@ -91,7 +91,7 @@ class Car {
 
 	function update($id, $plate, $color){
 
-		$stmt = $mysqli->prepare("UPDATE cars_and_colors SET plate=?, color=? WHERE id=? AND deleted IS NULL");
+		$stmt = $this->connection->prepare("UPDATE cars_and_colors SET plate=?, color=? WHERE id=? AND deleted IS NULL");
 		$stmt->bind_param("ssi",$plate, $color, $id);
 		
 	// kas õnnestus salvestada
@@ -106,10 +106,9 @@ class Car {
 	function delete($id){
 		$database = "if16_alaraasa";
 
-		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
+		$this->connection = new $this->connection($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $database);
 
-		$stmt = $mysqli->prepare("UPDATE cars_and_colors SET deleted=NOW() WHERE id=? AND deleted IS NULL");
-		$stmt->bind_param("i", $id);
+		$stmt = $this->connection->prepare("UPDATE cars_and_colors SET deleted=NOW() WHERE id=? AND deleted IS NULL"); $stmt->bind_param("i", $id);
 
 
 		if($stmt->execute()){

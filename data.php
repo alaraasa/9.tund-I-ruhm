@@ -34,7 +34,7 @@
 		!empty($_POST["color"])
 	  ) {
 		  
-		$Car->save(cleanInput($_POST["plate"]), cleanInput($_POST["color"]));
+		$Car->save($Helper->cleanInput($_POST["plate"]), $Helper->cleanInput($_POST["color"]));
 		
 	}
 	

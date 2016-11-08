@@ -32,7 +32,7 @@
 		!empty($_POST["interest"])
 	  ) {
 		  
-		saveInterest(cleanInput($_POST["interest"]));
+		$Interest->save($Helper->cleanInput($_POST["interest"]));
 		
 	}
 	
@@ -40,15 +40,15 @@
 		!empty($_POST["userInterest"])
 	  ) {
 		  
-		saveUserInterest(cleanInput($_POST["userInterest"]));
+		$Interest->saveUser($Helper->cleanInput($_POST["userInterest"]));
 		
 	}
 	
 	
 	
-    $interests = getAllInterests();
+    $interests = $Interest->get();
 	
-    $userInterests = getAllUserInterests();
+    $userInterests = $interest->getUser();
 	
 ?>
 <h1><a href="data.php"> < tagasi</a> Kasutaja leht</h1>
