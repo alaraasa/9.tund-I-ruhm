@@ -132,32 +132,36 @@
 	<title>Logi sisse või loo kasutaja</title>
 </head>
 <body>
-
+<div class="container">
+<div class="row">
+	<div class="col-sm-3">
 	<h1>Logi sisse</h1>
-	<form method="POST">
+	<form class="form-group" method="POST">
 		<p style="color:red;"><?=$error;?></p>
 		<label>E-post</label>
 		<br>
 		
-		<input name="loginEmail" type="text">
+		<input class="form-control" name="loginEmail" type="text">
 		<br><br>
 		
-		<input type="password" name="loginPassword" placeholder="Parool">
+		<input class="form-control" type="password" name="loginPassword" placeholder="Parool">
 		<br><br>
 		
-		<input type="submit" value="Logi sisse">
+		<input class="btn btn-success btn-sm hidden-xs" type="submit" value="Logi sisse">
+		<input class="btn btn-success btn-sm btn-block visible-xs-block" type="submit" value="Logi sisse">
+
 		
 		
 	</form>
-	
-	
+	</div>
+	<div class="col-sm-offset-3 col-sm-3">
 	<h1>Loo kasutaja</h1>
-	<form method="POST">
+	<form class=form-group method="POST">
 		
 		<label>E-post</label>
 		<br>
 		
-		<input name="signupEmail" type="text" value="<?=$signupEmail;?>"> <?=$signupEmailError;?>
+		<input class="form-control" name="signupEmail" type="text" value="<?=$signupEmail;?>"> <?=$signupEmailError;?>
 		<br><br>
 		
 		<?php if($signupGender == "male") { ?>
@@ -180,14 +184,15 @@
 		
 		
 		<br>
-		<input type="password" name="signupPassword" placeholder="Parool"> <?php echo $signupPasswordError; ?>
+		<input class="form-control" type="password" name="signupPassword" placeholder="Parool"> <?php echo $signupPasswordError; ?>
 		<br><br>
 		
-		<input type="submit" value="Loo kasutaja">
-		
+		<input class="btn btn-success btn-sm" type="submit" value="Loo kasutaja">
+		</div>
 		
 	</form>
-
+</div>
+</div>
 </body>
 </html>
 

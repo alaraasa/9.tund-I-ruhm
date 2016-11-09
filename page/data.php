@@ -88,7 +88,7 @@ $carData = $Car->get($q, $_GET["sort"], $_GET["order"]);
 
 <?php 
 
-$html = "<table>";
+$html = "<table class='table table-striped'>";
 
 $order = "ASC";
 $idArrow = "&darr;";
@@ -137,7 +137,7 @@ foreach($carData as $c){
 	$html .= "<td>".$c->id."</td>";
 	$html .= "<td>".$c->plate."</td>";
 	$html .= "<td style='background-color:".$c->carColor."'>".$c->carColor."</td>";
-	$html .= "<td><a href='edit.php?id=".$c->id."'>edit.php</a></td>";
+	$html .= "<td><a class='bbtn btn-default btn-sm' href='edit.php?id=".$c->id."'><span class='glyphicon glyphicon-pencil'/> Muuda</a></td>";
 
 	$html .= "</tr>";
 }
